@@ -5721,9 +5721,9 @@
       "integrity": "sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw=="
     },
     "node_modules/bare-events": {
-      "version": "2.2.2",
-      "resolved": "https://registry.npmjs.org/bare-events/-/bare-events-2.2.2.tgz",
-      "integrity": "sha512-h7z00dWdG0PYOQEvChhOSWvOfkIKsdZGkWr083FgN/HyoQuebSew/cgirYqh9SCuy/hRvxc5Vy6Fw8xAmYHLkQ==",
+      "version": "2.2.1",
+      "resolved": "https://registry.npmjs.org/bare-events/-/bare-events-2.2.1.tgz",
+      "integrity": "sha512-9GYPpsPFvrWBkelIhOhTWtkeZxVxZOdb3VnFTCzlOo3OjvmTvzLoZFUT8kNFACx0vJej6QPney1Cf9BvzCNE/A==",
       "optional": true
     },
     "node_modules/bare-fs": {
@@ -7677,9 +7677,9 @@
       "integrity": "sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow=="
     },
     "node_modules/electron-to-chromium": {
-      "version": "1.4.714",
-      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.714.tgz",
-      "integrity": "sha512-OfnVHt+nMRH9Ua5koH/2gKlCAXbG+u1yXwLKyBVqNboBV34ZTwb846RUe8K5mtE1uhz0BXoMarZ13JCQr+sBtQ=="
+      "version": "1.4.711",
+      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.711.tgz",
+      "integrity": "sha512-hRg81qzvUEibX2lDxnFlVCHACa+LtrCPIsWAxo161LDYIB3jauf57RGsMZV9mvGwE98yGH06icj3zBEoOkxd/w=="
     },
     "node_modules/elliptic": {
       "version": "6.5.5",
@@ -9083,9 +9083,9 @@
       }
     },
     "node_modules/get-it": {
-      "version": "8.4.16",
-      "resolved": "https://registry.npmjs.org/get-it/-/get-it-8.4.16.tgz",
-      "integrity": "sha512-NrdV3P0bI4Zh/R0GXIsY3da5mJUd1lT8hGcfwb3KU9E/ewnJ1e8YAWQycAtj3mxrjesBf8ZBq3TDKqyM8AJkJg==",
+      "version": "8.4.15",
+      "resolved": "https://registry.npmjs.org/get-it/-/get-it-8.4.15.tgz",
+      "integrity": "sha512-UcFJxHQcEgZdP6ZoUUP/95HlLKPaysrL82UO81qEUre/WO8vxhIws9u7divaotsErAF6RsZfGcZc6WCRvadYHw==",
       "dependencies": {
         "debug": "^4.3.4",
         "decompress-response": "^7.0.0",
@@ -13247,9 +13247,9 @@
       }
     },
     "node_modules/postcss": {
-      "version": "8.4.38",
-      "resolved": "https://registry.npmjs.org/postcss/-/postcss-8.4.38.tgz",
-      "integrity": "sha512-Wglpdk03BSfXkHoQa3b/oulrotAkwrlLDRSOb9D0bN86FdRyE9lppSp33aHNPgBa0JKCoB+drFLZkQoRRYae5A==",
+      "version": "8.4.37",
+      "resolved": "https://registry.npmjs.org/postcss/-/postcss-8.4.37.tgz",
+      "integrity": "sha512-7iB/v/r7Woof0glKLH8b1SPHrsX7uhdO+Geb41QpF/+mWZHU3uxxSlN+UXGVit1PawOYDToO+AbZzhBzWRDwbQ==",
       "funding": [
         {
           "type": "opencollective",
