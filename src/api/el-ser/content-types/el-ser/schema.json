@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "el_sers",
+  "info": {
+    "singularName": "el-ser",
+    "pluralName": "el-sers",
+    "displayName": "El ser",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Imagen": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "acompanados": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::acompanado.acompanado",
+      "mappedBy": "el_ser"
+    },
+    "Nombre": {
+      "type": "string"
+    }
+  }
+}
