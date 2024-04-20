@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dimensiones",
+  "info": {
+    "singularName": "dimensione",
+    "pluralName": "dimensiones",
+    "displayName": "Dimensiones"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nombre": {
+      "type": "string"
+    },
+    "Descripcion": {
+      "type": "blocks"
+    }
+  }
+}

@@ -737,7 +737,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -829,6 +828,7 @@ export interface ApiDimensionDimension extends Schema.CollectionType {
     description: '';
   };
   options: {
+<<<<<<< HEAD
     draftAndPublish: true;
   };
   attributes: {
@@ -840,18 +840,37 @@ export interface ApiDimensionDimension extends Schema.CollectionType {
         'actividades.animado',
         'actividades.c-frases'
       ]
-    >;
+=======
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 50;
+        },
+        number
+      >;
+    code: Attribute.String & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::dimension.dimension',
+      'plugin::i18n.locale',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::dimension.dimension',
+      'plugin::i18n.locale',
       'oneToOne',
       'admin::user'
     > &
@@ -859,6 +878,66 @@ export interface ApiDimensionDimension extends Schema.CollectionType {
   };
 }
 
+export interface ApiAcompanadoAcompanado extends Schema.CollectionType {
+  collectionName: 'acompanados';
+  info: {
+    singularName: 'acompanado';
+    pluralName: 'acompanados';
+    displayName: 'Acompa\u00F1ados';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Nombre: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 40;
+      }>;
+    Documento: Attribute.Integer;
+    Celular: Attribute.Integer;
+    Direccion: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
+    el_ser: Attribute.Relation<
+      'api::acompanado.acompanado',
+      'manyToOne',
+      'api::el-ser.el-ser'
+    >;
+    estado_de_animo: Attribute.Relation<
+      'api::acompanado.acompanado',
+      'manyToOne',
+      'api::estado-de-animo.estado-de-animo'
+>>>>>>> 54cd1e6d233d70ab41d6ca813b8b9d8081a1c5bf
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+<<<<<<< HEAD
+      'api::dimension.dimension',
+=======
+      'api::acompanado.acompanado',
+>>>>>>> 54cd1e6d233d70ab41d6ca813b8b9d8081a1c5bf
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+<<<<<<< HEAD
+      'api::dimension.dimension',
+=======
+      'api::acompanado.acompanado',
+>>>>>>> 54cd1e6d233d70ab41d6ca813b8b9d8081a1c5bf
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+<<<<<<< HEAD
 export interface ApiEstadoDeAnimoEstadoDeAnimo extends Schema.CollectionType {
   collectionName: 'estado_de_animos';
   info: {
@@ -866,12 +945,21 @@ export interface ApiEstadoDeAnimoEstadoDeAnimo extends Schema.CollectionType {
     pluralName: 'estado-de-animos';
     displayName: 'Estado de Animo';
     description: '';
+=======
+export interface ApiDimensioneDimensione extends Schema.CollectionType {
+  collectionName: 'dimensiones';
+  info: {
+    singularName: 'dimensione';
+    pluralName: 'dimensiones';
+    displayName: 'Dimensiones';
+>>>>>>> 54cd1e6d233d70ab41d6ca813b8b9d8081a1c5bf
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     Nombre: Attribute.String;
+<<<<<<< HEAD
     Imagen: Attribute.Media;
     Color: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
@@ -885,17 +973,28 @@ export interface ApiEstadoDeAnimoEstadoDeAnimo extends Schema.CollectionType {
       'manyToMany',
       'api::frase.frase'
     >;
+=======
+    Descripcion: Attribute.Blocks;
+>>>>>>> 54cd1e6d233d70ab41d6ca813b8b9d8081a1c5bf
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
+<<<<<<< HEAD
       'api::estado-de-animo.estado-de-animo',
+=======
+      'api::dimensione.dimensione',
+>>>>>>> 54cd1e6d233d70ab41d6ca813b8b9d8081a1c5bf
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
+<<<<<<< HEAD
       'api::estado-de-animo.estado-de-animo',
+=======
+      'api::dimensione.dimensione',
+>>>>>>> 54cd1e6d233d70ab41d6ca813b8b9d8081a1c5bf
       'oneToOne',
       'admin::user'
     > &
@@ -903,32 +1002,59 @@ export interface ApiEstadoDeAnimoEstadoDeAnimo extends Schema.CollectionType {
   };
 }
 
+<<<<<<< HEAD
 export interface ApiFormularioFormulario extends Schema.CollectionType {
   collectionName: 'formularios';
   info: {
     singularName: 'formulario';
     pluralName: 'formularios';
     displayName: 'Formularios';
+=======
+export interface ApiElSerElSer extends Schema.CollectionType {
+  collectionName: 'el_sers';
+  info: {
+    singularName: 'el-ser';
+    pluralName: 'el-sers';
+    displayName: 'El ser';
+>>>>>>> 54cd1e6d233d70ab41d6ca813b8b9d8081a1c5bf
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+<<<<<<< HEAD
     Nombre: Attribute.String;
     Descripcion: Attribute.RichText;
     Pregunta: Attribute.Component<'formularios.pregunta', true>;
+=======
+    Imagen: Attribute.Media & Attribute.Required;
+    acompanados: Attribute.Relation<
+      'api::el-ser.el-ser',
+      'oneToMany',
+      'api::acompanado.acompanado'
+    >;
+    Nombre: Attribute.String;
+>>>>>>> 54cd1e6d233d70ab41d6ca813b8b9d8081a1c5bf
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
+<<<<<<< HEAD
       'api::formulario.formulario',
+=======
+      'api::el-ser.el-ser',
+>>>>>>> 54cd1e6d233d70ab41d6ca813b8b9d8081a1c5bf
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
+<<<<<<< HEAD
       'api::formulario.formulario',
+=======
+      'api::el-ser.el-ser',
+>>>>>>> 54cd1e6d233d70ab41d6ca813b8b9d8081a1c5bf
       'oneToOne',
       'admin::user'
     > &
@@ -936,6 +1062,7 @@ export interface ApiFormularioFormulario extends Schema.CollectionType {
   };
 }
 
+<<<<<<< HEAD
 export interface ApiFraseFrase extends Schema.CollectionType {
   collectionName: 'frases';
   info: {
@@ -943,11 +1070,20 @@ export interface ApiFraseFrase extends Schema.CollectionType {
     pluralName: 'frases';
     displayName: 'Frases';
     description: '';
+=======
+export interface ApiEstadoDeAnimoEstadoDeAnimo extends Schema.CollectionType {
+  collectionName: 'estado_de_animos';
+  info: {
+    singularName: 'estado-de-animo';
+    pluralName: 'estado-de-animos';
+    displayName: 'Estado de animo';
+>>>>>>> 54cd1e6d233d70ab41d6ca813b8b9d8081a1c5bf
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+<<<<<<< HEAD
     Nombre: Attribute.String;
     Frase: Attribute.RichText;
     Color: Attribute.String &
@@ -1004,17 +1140,30 @@ export interface ApiPacientePaciente extends Schema.CollectionType {
       'api::paciente.paciente',
       'manyToOne',
       'api::estado-de-animo.estado-de-animo'
+=======
+    estado: Attribute.String;
+    emoji: Attribute.Media & Attribute.Required;
+    acompanados: Attribute.Relation<
+      'api::estado-de-animo.estado-de-animo',
+      'oneToMany',
+      'api::acompanado.acompanado'
+>>>>>>> 54cd1e6d233d70ab41d6ca813b8b9d8081a1c5bf
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
+<<<<<<< HEAD
       'api::paciente.paciente',
+=======
+      'api::estado-de-animo.estado-de-animo',
+>>>>>>> 54cd1e6d233d70ab41d6ca813b8b9d8081a1c5bf
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
+<<<<<<< HEAD
       'api::paciente.paciente',
       'oneToOne',
       'admin::user'
@@ -1047,6 +1196,9 @@ export interface ApiTipoDeRespuestaTipoDeRespuesta
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::tipo-de-respuesta.tipo-de-respuesta',
+=======
+      'api::estado-de-animo.estado-de-animo',
+>>>>>>> 54cd1e6d233d70ab41d6ca813b8b9d8081a1c5bf
       'oneToOne',
       'admin::user'
     > &
@@ -1072,6 +1224,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+<<<<<<< HEAD
       'api::categorias-frase.categorias-frase': ApiCategoriasFraseCategoriasFrase;
       'api::dimension.dimension': ApiDimensionDimension;
       'api::estado-de-animo.estado-de-animo': ApiEstadoDeAnimoEstadoDeAnimo;
@@ -1079,6 +1232,13 @@ declare module '@strapi/types' {
       'api::frase.frase': ApiFraseFrase;
       'api::paciente.paciente': ApiPacientePaciente;
       'api::tipo-de-respuesta.tipo-de-respuesta': ApiTipoDeRespuestaTipoDeRespuesta;
+=======
+      'plugin::i18n.locale': PluginI18NLocale;
+      'api::acompanado.acompanado': ApiAcompanadoAcompanado;
+      'api::dimensione.dimensione': ApiDimensioneDimensione;
+      'api::el-ser.el-ser': ApiElSerElSer;
+      'api::estado-de-animo.estado-de-animo': ApiEstadoDeAnimoEstadoDeAnimo;
+>>>>>>> 54cd1e6d233d70ab41d6ca813b8b9d8081a1c5bf
     }
   }
 }

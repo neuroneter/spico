@@ -1,5 +1,6 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+<<<<<<< HEAD
 export interface ActividadesAlarma extends Schema.Component {
   collectionName: 'components_actividades_alarmas';
   info: {
@@ -107,4 +108,8 @@ declare module '@strapi/types' {
       'formularios.respuesta': FormulariosRespuesta;
     }
   }
+=======
+declare module '@strapi/types' {
+  export module Shared {}
+>>>>>>> 54cd1e6d233d70ab41d6ca813b8b9d8081a1c5bf
 }

@@ -10,7 +10,6 @@
       "license": "MIT",
       "dependencies": {
         "@strapi/plugin-cloud": "4.20.2",
-        "@strapi/plugin-color-picker": "^4.23.1",
         "@strapi/plugin-graphql": "^4.0.5",
         "@strapi/plugin-i18n": "4.20.2",
         "@strapi/plugin-users-permissions": "4.20.2",
@@ -3575,95 +3574,6 @@
         "styled-components": "5.3.3"
       }
     },
-    "node_modules/@strapi/plugin-color-picker": {
-      "version": "4.23.1",
-      "resolved": "https://registry.npmjs.org/@strapi/plugin-color-picker/-/plugin-color-picker-4.23.1.tgz",
-      "integrity": "sha512-37MoVd3uIHdqVhJadX4DGpdP3el2k/77V6BIyr/rd1G7qDJVKhm7BrknNsZUJGpTMB5ww/T/xWFIXhCrGjBGZw==",
-      "dependencies": {
-        "@strapi/design-system": "1.18.0",
-        "@strapi/helper-plugin": "4.23.1",
-        "@strapi/icons": "1.18.0",
-        "prop-types": "^15.8.1",
-        "react-colorful": "5.6.1",
-        "react-intl": "6.4.1"
-      },
-      "engines": {
-        "node": ">=18.0.0 <=20.x.x",
-        "npm": ">=6.0.0"
-      },
-      "peerDependencies": {
-        "@strapi/strapi": "^4.4.0",
-        "react": "^17.0.0 || ^18.0.0",
-        "react-dom": "^17.0.0 || ^18.0.0",
-        "react-router-dom": "^5.2.0",
-        "styled-components": "^5.2.1"
-      }
-    },
-    "node_modules/@strapi/plugin-color-picker/node_modules/@strapi/design-system": {
-      "version": "1.18.0",
-      "resolved": "https://registry.npmjs.org/@strapi/design-system/-/design-system-1.18.0.tgz",
-      "integrity": "sha512-bQ//p4deEfu3z2rQOrT1QUPPugXsoVUusSuwdffZ7/fJAxOShZ8nOUmpWETq8bZECPoDn278cirYAXfcTftHLA==",
-      "dependencies": {
-        "@codemirror/lang-json": "^6.0.1",
-        "@floating-ui/react-dom": "^2.0.8",
-        "@internationalized/date": "^3.5.2",
-        "@internationalized/number": "^3.5.1",
-        "@radix-ui/react-dismissable-layer": "^1.0.5",
-        "@radix-ui/react-dropdown-menu": "^2.0.6",
-        "@radix-ui/react-focus-scope": "1.0.4",
-        "@strapi/ui-primitives": "^1.18.0",
-        "@uiw/react-codemirror": "^4.21.25",
-        "aria-hidden": "^1.2.4",
-        "compute-scroll-into-view": "^3.1.0",
-        "prop-types": "^15.8.1",
-        "react-remove-scroll": "^2.5.9"
-      },
-      "peerDependencies": {
-        "@strapi/icons": "^1.5.0",
-        "react": "^17.0.0 || ^18.0.0",
-        "react-dom": "^17.0.0 || ^18.0.0",
-        "react-router-dom": "^5.2.0",
-        "styled-components": "^5.2.1"
-      }
-    },
-    "node_modules/@strapi/plugin-color-picker/node_modules/@strapi/helper-plugin": {
-      "version": "4.23.1",
-      "resolved": "https://registry.npmjs.org/@strapi/helper-plugin/-/helper-plugin-4.23.1.tgz",
-      "integrity": "sha512-KpxROhxp3LRLUHaMZnrKaK1o+J0Z6de4WmRN1gfYZGgP3xS05TQCXK1/e5nV1qFMMvbPCDDawNdPcheekSfeGg==",
-      "dependencies": {
-        "axios": "1.6.0",
-        "date-fns": "2.30.0",
-        "formik": "2.4.0",
-        "immer": "9.0.19",
-        "lodash": "4.17.21",
-        "qs": "6.11.1",
-        "react-helmet": "6.1.0",
-        "react-intl": "6.4.1",
-        "react-query": "3.39.3",
-        "react-select": "5.7.0"
-      },
-      "engines": {
-        "node": ">=18.0.0 <=20.x.x",
-        "npm": ">=6.0.0"
-      },
-      "peerDependencies": {
-        "@strapi/design-system": "1.18.0",
-        "@strapi/icons": "1.18.0",
-        "react": "^17.0.0 || ^18.0.0",
-        "react-dom": "^17.0.0 || ^18.0.0",
-        "react-router-dom": "^5.2.0",
-        "styled-components": "^5.2.1"
-      }
-    },
-    "node_modules/@strapi/plugin-color-picker/node_modules/@strapi/icons": {
-      "version": "1.18.0",
-      "resolved": "https://registry.npmjs.org/@strapi/icons/-/icons-1.18.0.tgz",
-      "integrity": "sha512-XeOjGqwDX7HkSfWNnUOx8WCT3qGzPixZrKxNUPCPmIzcLmhL9/Ni4wa1uoqwiZgzq/XzoiXpNEPl1lB5Tiljjg==",
-      "peerDependencies": {
-        "react": "^17.0.0 || ^18.0.0",
-        "react-dom": "^17.0.0 || ^18.0.0"
-      }
-    },
     "node_modules/@strapi/plugin-content-manager": {
       "version": "4.20.2",
       "resolved": "https://registry.npmjs.org/@strapi/plugin-content-manager/-/plugin-content-manager-4.20.2.tgz",
@@ -4352,9 +4262,9 @@
       }
     },
     "node_modules/@strapi/ui-primitives": {
-      "version": "1.18.0",
-      "resolved": "https://registry.npmjs.org/@strapi/ui-primitives/-/ui-primitives-1.18.0.tgz",
-      "integrity": "sha512-l+EAzfWL7n5u1awCfasonxU9VP7TSeu2CPf2S7oNZIM/tJnLMahsmMefnbVCeJAG50dvPx7vHQiWQ3483O8qww==",
+      "version": "1.16.0",
+      "resolved": "https://registry.npmjs.org/@strapi/ui-primitives/-/ui-primitives-1.16.0.tgz",
+      "integrity": "sha512-ATJPrLI9K/Cq9gGlLa93KAXBdc4rkWRg7GOogOeukohy4a8CzcQTK0l7Lp3EeXSZKwcOU5ohDcC43BXB0eSlyg==",
       "dependencies": {
         "@radix-ui/number": "^1.0.1",
         "@radix-ui/primitive": "^1.0.1",
@@ -4375,8 +4285,8 @@
         "@radix-ui/react-use-layout-effect": "1.0.1",
         "@radix-ui/react-use-previous": "^1.0.1",
         "@radix-ui/react-visually-hidden": "^1.0.3",
-        "aria-hidden": "^1.2.4",
-        "react-remove-scroll": "^2.5.9"
+        "aria-hidden": "^1.2.3",
+        "react-remove-scroll": "^2.5.7"
       },
       "peerDependencies": {
         "react": "^17.0.0 || ^18.0.0",
@@ -5030,9 +4940,9 @@
       }
     },
     "node_modules/@uiw/codemirror-extensions-basic-setup": {
-      "version": "4.21.25",
-      "resolved": "https://registry.npmjs.org/@uiw/codemirror-extensions-basic-setup/-/codemirror-extensions-basic-setup-4.21.25.tgz",
-      "integrity": "sha512-eeUKlmEE8aSoSgelS8OR2elcPGntpRo669XinAqPCLa0eKorT2B0d3ts+AE+njAeGk744tiyAEbHb2n+6OQmJw==",
+      "version": "4.21.24",
+      "resolved": "https://registry.npmjs.org/@uiw/codemirror-extensions-basic-setup/-/codemirror-extensions-basic-setup-4.21.24.tgz",
+      "integrity": "sha512-TJYKlPxNAVJNclW1EGumhC7I02jpdMgBon4jZvb5Aju9+tUzS44IwORxUx8BD8ZtH2UHmYS+04rE3kLk/BtnCQ==",
       "dependencies": {
         "@codemirror/autocomplete": "^6.0.0",
         "@codemirror/commands": "^6.0.0",
@@ -5056,15 +4966,15 @@
       }
     },
     "node_modules/@uiw/react-codemirror": {
-      "version": "4.21.25",
-      "resolved": "https://registry.npmjs.org/@uiw/react-codemirror/-/react-codemirror-4.21.25.tgz",
-      "integrity": "sha512-mBrCoiffQ+hbTqV1JoixFEcH7BHXkS3PjTyNH7dE8Gzf3GSBRazhtSM5HrAFIiQ5FIRGFs8Gznc4UAdhtevMmw==",
+      "version": "4.21.24",
+      "resolved": "https://registry.npmjs.org/@uiw/react-codemirror/-/react-codemirror-4.21.24.tgz",
+      "integrity": "sha512-8zs5OuxbhikHocHBsVBMuW1vqlv4ccZAkt4rFwr7ebLP2Q6RwHsjpsR9GeGyAigAqonKRoeHugqF78UMrkaTgg==",
       "dependencies": {
         "@babel/runtime": "^7.18.6",
         "@codemirror/commands": "^6.1.0",
         "@codemirror/state": "^6.1.1",
         "@codemirror/theme-one-dark": "^6.0.0",
-        "@uiw/codemirror-extensions-basic-setup": "4.21.25",
+        "@uiw/codemirror-extensions-basic-setup": "4.21.24",
         "codemirror": "^6.0.0"
       },
       "funding": {
@@ -5811,9 +5721,9 @@
       "integrity": "sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw=="
     },
     "node_modules/bare-events": {
-      "version": "2.2.2",
-      "resolved": "https://registry.npmjs.org/bare-events/-/bare-events-2.2.2.tgz",
-      "integrity": "sha512-h7z00dWdG0PYOQEvChhOSWvOfkIKsdZGkWr083FgN/HyoQuebSew/cgirYqh9SCuy/hRvxc5Vy6Fw8xAmYHLkQ==",
+      "version": "2.2.1",
+      "resolved": "https://registry.npmjs.org/bare-events/-/bare-events-2.2.1.tgz",
+      "integrity": "sha512-9GYPpsPFvrWBkelIhOhTWtkeZxVxZOdb3VnFTCzlOo3OjvmTvzLoZFUT8kNFACx0vJej6QPney1Cf9BvzCNE/A==",
       "optional": true
     },
     "node_modules/bare-fs": {
@@ -7767,9 +7677,9 @@
       "integrity": "sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow=="
     },
     "node_modules/electron-to-chromium": {
-      "version": "1.4.714",
-      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.714.tgz",
-      "integrity": "sha512-OfnVHt+nMRH9Ua5koH/2gKlCAXbG+u1yXwLKyBVqNboBV34ZTwb846RUe8K5mtE1uhz0BXoMarZ13JCQr+sBtQ=="
+      "version": "1.4.711",
+      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.711.tgz",
+      "integrity": "sha512-hRg81qzvUEibX2lDxnFlVCHACa+LtrCPIsWAxo161LDYIB3jauf57RGsMZV9mvGwE98yGH06icj3zBEoOkxd/w=="
     },
     "node_modules/elliptic": {
       "version": "6.5.5",
@@ -9173,9 +9083,9 @@
       }
     },
     "node_modules/get-it": {
-      "version": "8.4.16",
-      "resolved": "https://registry.npmjs.org/get-it/-/get-it-8.4.16.tgz",
-      "integrity": "sha512-NrdV3P0bI4Zh/R0GXIsY3da5mJUd1lT8hGcfwb3KU9E/ewnJ1e8YAWQycAtj3mxrjesBf8ZBq3TDKqyM8AJkJg==",
+      "version": "8.4.15",
+      "resolved": "https://registry.npmjs.org/get-it/-/get-it-8.4.15.tgz",
+      "integrity": "sha512-UcFJxHQcEgZdP6ZoUUP/95HlLKPaysrL82UO81qEUre/WO8vxhIws9u7divaotsErAF6RsZfGcZc6WCRvadYHw==",
       "dependencies": {
         "debug": "^4.3.4",
         "decompress-response": "^7.0.0",
@@ -13337,9 +13247,9 @@
       }
     },
     "node_modules/postcss": {
-      "version": "8.4.38",
-      "resolved": "https://registry.npmjs.org/postcss/-/postcss-8.4.38.tgz",
-      "integrity": "sha512-Wglpdk03BSfXkHoQa3b/oulrotAkwrlLDRSOb9D0bN86FdRyE9lppSp33aHNPgBa0JKCoB+drFLZkQoRRYae5A==",
+      "version": "8.4.37",
+      "resolved": "https://registry.npmjs.org/postcss/-/postcss-8.4.37.tgz",
+      "integrity": "sha512-7iB/v/r7Woof0glKLH8b1SPHrsX7uhdO+Geb41QpF/+mWZHU3uxxSlN+UXGVit1PawOYDToO+AbZzhBzWRDwbQ==",
       "funding": [
         {
           "type": "opencollective",
@@ -13728,15 +13638,6 @@
       },
       "engines": {
         "node": ">=0.10.0"
-      }
-    },
-    "node_modules/react-colorful": {
-      "version": "5.6.1",
-      "resolved": "https://registry.npmjs.org/react-colorful/-/react-colorful-5.6.1.tgz",
-      "integrity": "sha512-1exovf0uGTGyq5mXQT0zgQ80uvj2PCwvF8zY1RN9/vbJVSjSo3fsB/4L3ObbF7u70NduSiK4xu4Y6q1MHoUGEw==",
-      "peerDependencies": {
-        "react": ">=16.8.0",
-        "react-dom": ">=16.8.0"
       }
     },
     "node_modules/react-dnd": {
