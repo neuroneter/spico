@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_actividades_alarmas",
+  "info": {
+    "displayName": "Alarma",
+    "icon": "clock",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Accion": {
+      "type": "string",
+      "required": true
+    },
+    "Alarma": {
+      "type": "time"
+    },
+    "Ciclo_Alarma": {
+      "type": "boolean",
+      "default": true
+    },
+    "Fecha": {
+      "type": "date"
+    },
+    "Ciclo_Fecha": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "Ciclos": {
+      "type": "integer",
+      "default": 5,
+      "required": true
+    }
+  }
+}

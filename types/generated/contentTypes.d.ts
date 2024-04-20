@@ -585,6 +585,53 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface PluginI18NLocale extends Schema.CollectionType {
+  collectionName: 'i18n_locale';
+  info: {
+    singularName: 'locale';
+    pluralName: 'locales';
+    collectionName: 'locales';
+    displayName: 'Locale';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 50;
+        },
+        number
+      >;
+    code: Attribute.String & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUsersPermissionsPermission
   extends Schema.CollectionType {
   collectionName: 'up_permissions';
@@ -736,129 +783,75 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface PluginI18NLocale extends Schema.CollectionType {
-  collectionName: 'i18n_locale';
+export interface ApiCategoriasFraseCategoriasFrase
+  extends Schema.CollectionType {
+  collectionName: 'categorias_frases';
   info: {
-    singularName: 'locale';
-    pluralName: 'locales';
-    collectionName: 'locales';
-    displayName: 'Locale';
+    singularName: 'categorias-frase';
+    pluralName: 'categorias-frases';
+    displayName: 'Categorias Frases';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Nombre: Attribute.String;
+    Descripcion: Attribute.Text;
+    frases: Attribute.Relation<
+      'api::categorias-frase.categorias-frase',
+      'manyToMany',
+      'api::frase.frase'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::categorias-frase.categorias-frase',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::categorias-frase.categorias-frase',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDimensionDimension extends Schema.CollectionType {
+  collectionName: 'dimensiones';
+  info: {
+    singularName: 'dimension';
+    pluralName: 'dimensiones';
+    displayName: 'Dimensiones';
     description: '';
   };
   options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    name: Attribute.String &
-      Attribute.SetMinMax<
-        {
-          min: 1;
-          max: 50;
-        },
-        number
-      >;
-    code: Attribute.String & Attribute.Unique;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiAboutAbout extends Schema.SingleType {
-  collectionName: 'abouts';
-  info: {
-    singularName: 'about';
-    pluralName: 'abouts';
-    displayName: 'About';
-    description: 'Write about yourself and the content you create';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    title: Attribute.String;
-    blocks: Attribute.DynamicZone<
-      ['shared.media', 'shared.quote', 'shared.rich-text', 'shared.slider']
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::about.about',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::about.about',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiArticleArticle extends Schema.CollectionType {
-  collectionName: 'articles';
-  info: {
-    singularName: 'article';
-    pluralName: 'articles';
-    displayName: 'Article';
-    description: 'Create your blog content';
-  };
-  options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.Text &
-      Attribute.SetMinMaxLength<{
-        maxLength: 80;
-      }>;
-    slug: Attribute.UID<'api::article.article', 'title'>;
-    cover: Attribute.Media;
-    author: Attribute.Relation<
-      'api::article.article',
-      'manyToOne',
-      'api::author.author'
-    >;
-    category: Attribute.Relation<
-      'api::article.article',
-      'manyToOne',
-      'api::category.category'
-    >;
-    blocks: Attribute.DynamicZone<
-      ['shared.media', 'shared.quote', 'shared.rich-text', 'shared.slider']
+    Nombre: Attribute.String;
+    Descripcion: Attribute.RichText;
+    Actividades: Attribute.DynamicZone<
+      [
+        'actividades.estado-emoji',
+        'actividades.animado',
+        'actividades.c-frases'
+      ]
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::article.article',
+      'api::dimension.dimension',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::article.article',
+      'api::dimension.dimension',
       'oneToOne',
       'admin::user'
     > &
@@ -866,103 +859,43 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   };
 }
 
-export interface ApiAuthorAuthor extends Schema.CollectionType {
-  collectionName: 'authors';
+export interface ApiEstadoDeAnimoEstadoDeAnimo extends Schema.CollectionType {
+  collectionName: 'estado_de_animos';
   info: {
-    singularName: 'author';
-    pluralName: 'authors';
-    displayName: 'Author';
-    description: 'Create authors for your content';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    name: Attribute.String;
-    avatar: Attribute.Media;
-    email: Attribute.String;
-    articles: Attribute.Relation<
-      'api::author.author',
-      'oneToMany',
-      'api::article.article'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::author.author',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::author.author',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiCategoryCategory extends Schema.CollectionType {
-  collectionName: 'categories';
-  info: {
-    singularName: 'category';
-    pluralName: 'categories';
-    displayName: 'Category';
-    description: 'Organize your content into categories';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    name: Attribute.String;
-    slug: Attribute.UID;
-    articles: Attribute.Relation<
-      'api::category.category',
-      'oneToMany',
-      'api::article.article'
-    >;
-    description: Attribute.Text;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::category.category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::category.category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiEjemploEjemplo extends Schema.CollectionType {
-  collectionName: 'ejemplos';
-  info: {
-    singularName: 'ejemplo';
-    pluralName: 'ejemplos';
-    displayName: 'Ejemplo';
+    singularName: 'estado-de-animo';
+    pluralName: 'estado-de-animos';
+    displayName: 'Estado de Animo';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    EjemploText: Attribute.String;
+    Nombre: Attribute.String;
+    Imagen: Attribute.Media;
+    Color: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
+    pacientes: Attribute.Relation<
+      'api::estado-de-animo.estado-de-animo',
+      'oneToMany',
+      'api::paciente.paciente'
+    >;
+    frases: Attribute.Relation<
+      'api::estado-de-animo.estado-de-animo',
+      'manyToMany',
+      'api::frase.frase'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::ejemplo.ejemplo',
+      'api::estado-de-animo.estado-de-animo',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::ejemplo.ejemplo',
+      'api::estado-de-animo.estado-de-animo',
       'oneToOne',
       'admin::user'
     > &
@@ -970,32 +903,150 @@ export interface ApiEjemploEjemplo extends Schema.CollectionType {
   };
 }
 
-export interface ApiGlobalGlobal extends Schema.SingleType {
-  collectionName: 'globals';
+export interface ApiFormularioFormulario extends Schema.CollectionType {
+  collectionName: 'formularios';
   info: {
-    singularName: 'global';
-    pluralName: 'globals';
-    displayName: 'Global';
-    description: 'Define global settings';
+    singularName: 'formulario';
+    pluralName: 'formularios';
+    displayName: 'Formularios';
+    description: '';
   };
   options: {
-    draftAndPublish: false;
+    draftAndPublish: true;
   };
   attributes: {
-    siteName: Attribute.String & Attribute.Required;
-    favicon: Attribute.Media;
-    siteDescription: Attribute.Text & Attribute.Required;
-    defaultSeo: Attribute.Component<'shared.seo'>;
+    Nombre: Attribute.String;
+    Descripcion: Attribute.RichText;
+    Pregunta: Attribute.Component<'formularios.pregunta', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::global.global',
+      'api::formulario.formulario',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::global.global',
+      'api::formulario.formulario',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFraseFrase extends Schema.CollectionType {
+  collectionName: 'frases';
+  info: {
+    singularName: 'frase';
+    pluralName: 'frases';
+    displayName: 'Frases';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Nombre: Attribute.String;
+    Frase: Attribute.RichText;
+    Color: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
+    categorias_frases: Attribute.Relation<
+      'api::frase.frase',
+      'manyToMany',
+      'api::categorias-frase.categorias-frase'
+    >;
+    estado_de_animos: Attribute.Relation<
+      'api::frase.frase',
+      'manyToMany',
+      'api::estado-de-animo.estado-de-animo'
+    >;
+    Imagen: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::frase.frase',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::frase.frase',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPacientePaciente extends Schema.CollectionType {
+  collectionName: 'pacientes';
+  info: {
+    singularName: 'paciente';
+    pluralName: 'pacientes';
+    displayName: 'Paciente';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Nombre: Attribute.String;
+    Apellido: Attribute.String;
+    Celular: Attribute.BigInteger;
+    Direccion: Attribute.String;
+    Correo: Attribute.Email;
+    Contrasena: Attribute.Password;
+    Aceptacion: Attribute.Boolean;
+    Estado_de_Animo: Attribute.Relation<
+      'api::paciente.paciente',
+      'manyToOne',
+      'api::estado-de-animo.estado-de-animo'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::paciente.paciente',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::paciente.paciente',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTipoDeRespuestaTipoDeRespuesta
+  extends Schema.CollectionType {
+  collectionName: 'tipo_de_respuestas';
+  info: {
+    singularName: 'tipo-de-respuesta';
+    pluralName: 'tipo-de-respuestas';
+    displayName: 'Tipo de Respuestas';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Tipo: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tipo-de-respuesta.tipo-de-respuesta',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tipo-de-respuesta.tipo-de-respuesta',
       'oneToOne',
       'admin::user'
     > &
@@ -1017,16 +1068,17 @@ declare module '@strapi/types' {
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'plugin::i18n.locale': PluginI18NLocale;
-      'api::about.about': ApiAboutAbout;
-      'api::article.article': ApiArticleArticle;
-      'api::author.author': ApiAuthorAuthor;
-      'api::category.category': ApiCategoryCategory;
-      'api::ejemplo.ejemplo': ApiEjemploEjemplo;
-      'api::global.global': ApiGlobalGlobal;
+      'api::categorias-frase.categorias-frase': ApiCategoriasFraseCategoriasFrase;
+      'api::dimension.dimension': ApiDimensionDimension;
+      'api::estado-de-animo.estado-de-animo': ApiEstadoDeAnimoEstadoDeAnimo;
+      'api::formulario.formulario': ApiFormularioFormulario;
+      'api::frase.frase': ApiFraseFrase;
+      'api::paciente.paciente': ApiPacientePaciente;
+      'api::tipo-de-respuesta.tipo-de-respuesta': ApiTipoDeRespuestaTipoDeRespuesta;
     }
   }
 }

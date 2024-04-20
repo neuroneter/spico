@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_formularios_respuestas",
+  "info": {
+    "displayName": "Respuesta",
+    "icon": "chartBubble"
+  },
+  "options": {},
+  "attributes": {
+    "Opcion": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

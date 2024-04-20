@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pacientes",
+  "info": {
+    "singularName": "paciente",
+    "pluralName": "pacientes",
+    "displayName": "Paciente",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nombre": {
+      "type": "string"
+    },
+    "Apellido": {
+      "type": "string"
+    },
+    "Celular": {
+      "type": "biginteger"
+    },
+    "Direccion": {
+      "type": "string"
+    },
+    "Correo": {
+      "type": "email"
+    },
+    "Contrasena": {
+      "type": "password"
+    },
+    "Aceptacion": {
+      "type": "boolean"
+    },
+    "Estado_de_Animo": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::estado-de-animo.estado-de-animo",
+      "inversedBy": "pacientes"
+    }
+  }
+}

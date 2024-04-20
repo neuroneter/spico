@@ -1,75 +1,110 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface SharedMedia extends Schema.Component {
-  collectionName: 'components_shared_media';
+export interface ActividadesAlarma extends Schema.Component {
+  collectionName: 'components_actividades_alarmas';
   info: {
-    displayName: 'Media';
-    icon: 'file-video';
-  };
-  attributes: {
-    file: Attribute.Media;
-  };
-}
-
-export interface SharedQuote extends Schema.Component {
-  collectionName: 'components_shared_quotes';
-  info: {
-    displayName: 'Quote';
-    icon: 'indent';
-  };
-  attributes: {
-    title: Attribute.String;
-    body: Attribute.Text;
-  };
-}
-
-export interface SharedRichText extends Schema.Component {
-  collectionName: 'components_shared_rich_texts';
-  info: {
-    displayName: 'Rich text';
-    icon: 'align-justify';
+    displayName: 'Alarma';
+    icon: 'clock';
     description: '';
   };
   attributes: {
-    body: Attribute.RichText;
+    Accion: Attribute.String & Attribute.Required;
+    Alarma: Attribute.Time;
+    Ciclo_Alarma: Attribute.Boolean & Attribute.DefaultTo<true>;
+    Fecha: Attribute.Date;
+    Ciclo_Fecha: Attribute.Boolean & Attribute.DefaultTo<true>;
+    Ciclos: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<5>;
   };
 }
 
-export interface SharedSeo extends Schema.Component {
-  collectionName: 'components_shared_seos';
+export interface ActividadesAnimado extends Schema.Component {
+  collectionName: 'components_actividades_animados';
   info: {
-    name: 'Seo';
-    icon: 'allergies';
-    displayName: 'Seo';
-    description: '';
+    displayName: 'Animado';
+    icon: 'emotionHappy';
   };
   attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
-    metaDescription: Attribute.Text & Attribute.Required;
-    shareImage: Attribute.Media;
+    Accion: Attribute.Text;
+    Imagen: Attribute.Media;
+    Color: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
+    Ciclo: Attribute.Component<'actividades.alarma'>;
   };
 }
 
-export interface SharedSlider extends Schema.Component {
-  collectionName: 'components_shared_sliders';
+export interface ActividadesCFrases extends Schema.Component {
+  collectionName: 'components_actividades_c_frases';
   info: {
-    displayName: 'Slider';
-    icon: 'address-book';
+    displayName: 'CFrases';
+    icon: 'bulletList';
     description: '';
   };
   attributes: {
-    files: Attribute.Media;
+    Ciclo: Attribute.Component<'actividades.alarma'>;
+    categorias_frase: Attribute.Relation<
+      'actividades.c-frases',
+      'oneToOne',
+      'api::categorias-frase.categorias-frase'
+    >;
+  };
+}
+
+export interface ActividadesEstadoEmoji extends Schema.Component {
+  collectionName: 'components_actividades_estado_emojis';
+  info: {
+    displayName: 'Estado_emoji';
+    icon: 'cloud';
+    description: '';
+  };
+  attributes: {
+    estado_de_animos: Attribute.Relation<
+      'actividades.estado-emoji',
+      'oneToMany',
+      'api::estado-de-animo.estado-de-animo'
+    >;
+    Pregunta: Attribute.String;
+  };
+}
+
+export interface FormulariosPregunta extends Schema.Component {
+  collectionName: 'components_formularios_preguntas';
+  info: {
+    displayName: 'Pregunta';
+    icon: 'file';
+    description: '';
+  };
+  attributes: {
+    Enunciado: Attribute.Text & Attribute.Required;
+    Respuestas: Attribute.Component<'formularios.respuesta', true>;
+    tipo_de_respuesta: Attribute.Relation<
+      'formularios.pregunta',
+      'oneToOne',
+      'api::tipo-de-respuesta.tipo-de-respuesta'
+    >;
+    Unica_Respuesta: Attribute.Boolean & Attribute.DefaultTo<true>;
+  };
+}
+
+export interface FormulariosRespuesta extends Schema.Component {
+  collectionName: 'components_formularios_respuestas';
+  info: {
+    displayName: 'Respuesta';
+    icon: 'chartBubble';
+  };
+  attributes: {
+    Opcion: Attribute.String & Attribute.Required;
   };
 }
 
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'shared.media': SharedMedia;
-      'shared.quote': SharedQuote;
-      'shared.rich-text': SharedRichText;
-      'shared.seo': SharedSeo;
-      'shared.slider': SharedSlider;
+      'actividades.alarma': ActividadesAlarma;
+      'actividades.animado': ActividadesAnimado;
+      'actividades.c-frases': ActividadesCFrases;
+      'actividades.estado-emoji': ActividadesEstadoEmoji;
+      'formularios.pregunta': FormulariosPregunta;
+      'formularios.respuesta': FormulariosRespuesta;
     }
   }
 }

@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tipo_de_respuestas",
+  "info": {
+    "singularName": "tipo-de-respuesta",
+    "pluralName": "tipo-de-respuestas",
+    "displayName": "Tipo de Respuestas"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Tipo": {
+      "type": "string"
+    }
+  }
+}

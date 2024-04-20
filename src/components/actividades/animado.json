@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_actividades_animados",
+  "info": {
+    "displayName": "Animado",
+    "icon": "emotionHappy"
+  },
+  "options": {},
+  "attributes": {
+    "Accion": {
+      "type": "text"
+    },
+    "Imagen": {
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "Ciclo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "actividades.alarma"
+    }
+  }
+}

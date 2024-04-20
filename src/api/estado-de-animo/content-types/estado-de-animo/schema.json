@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "estado_de_animos",
+  "info": {
+    "singularName": "estado-de-animo",
+    "pluralName": "estado-de-animos",
+    "displayName": "Estado de Animo",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nombre": {
+      "type": "string"
+    },
+    "Imagen": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "pacientes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::paciente.paciente",
+      "mappedBy": "Estado_de_Animo"
+    },
+    "frases": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::frase.frase",
+      "mappedBy": "estado_de_animos"
+    }
+  }
+}

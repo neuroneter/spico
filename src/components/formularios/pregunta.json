@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_formularios_preguntas",
+  "info": {
+    "displayName": "Pregunta",
+    "icon": "file",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Enunciado": {
+      "type": "text",
+      "required": true
+    },
+    "Respuestas": {
+      "type": "component",
+      "repeatable": true,
+      "component": "formularios.respuesta"
+    },
+    "tipo_de_respuesta": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tipo-de-respuesta.tipo-de-respuesta"
+    },
+    "Unica_Respuesta": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

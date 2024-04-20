@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_actividades_estado_emojis",
+  "info": {
+    "displayName": "Estado_emoji",
+    "icon": "cloud",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "estado_de_animos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::estado-de-animo.estado-de-animo"
+    },
+    "Pregunta": {
+      "type": "string"
+    }
+  }
+}

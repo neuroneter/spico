@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_actividades_c_frases",
+  "info": {
+    "displayName": "CFrases",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Ciclo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "actividades.alarma"
+    },
+    "categorias_frase": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::categorias-frase.categorias-frase"
+    }
+  }
+}

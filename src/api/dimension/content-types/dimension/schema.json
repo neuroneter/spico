@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dimensiones",
+  "info": {
+    "singularName": "dimension",
+    "pluralName": "dimensiones",
+    "displayName": "Dimensiones",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nombre": {
+      "type": "string"
+    },
+    "Descripcion": {
+      "type": "richtext"
+    },
+    "Actividades": {
+      "type": "dynamiczone",
+      "components": [
+        "actividades.estado-emoji",
+        "actividades.animado",
+        "actividades.c-frases"
+      ]
+    }
+  }
+}
