@@ -76,6 +76,21 @@ export interface ActividadesPasoAPaso extends Schema.Component {
   };
   attributes: {
     Nombre: Attribute.String;
+    Lista_de_pasos: Attribute.Component<'actividades.paso', true>;
+  };
+}
+
+export interface ActividadesPaso extends Schema.Component {
+  collectionName: 'components_actividades_pasos';
+  info: {
+    displayName: 'Paso';
+    icon: 'check';
+    description: '';
+  };
+  attributes: {
+    Actividad: Attribute.Text & Attribute.Required;
+    Imagen: Attribute.Media;
+    Audio: Attribute.Media;
   };
 }
 
@@ -117,6 +132,7 @@ declare module '@strapi/types' {
       'actividades.c-frases': ActividadesCFrases;
       'actividades.estado-emoji': ActividadesEstadoEmoji;
       'actividades.paso-a-paso': ActividadesPasoAPaso;
+      'actividades.paso': ActividadesPaso;
       'formularios.pregunta': FormulariosPregunta;
       'formularios.respuesta': FormulariosRespuesta;
     }

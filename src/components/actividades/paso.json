@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_actividades_pasos",
+  "info": {
+    "displayName": "Paso",
+    "icon": "check",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Actividad": {
+      "type": "text",
+      "required": true
+    },
+    "Imagen": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Audio": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "audios"
+      ]
+    }
+  }
+}
