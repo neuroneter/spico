@@ -23,7 +23,8 @@
       "components": [
         "actividades.estado-emoji",
         "actividades.animado",
-        "actividades.c-frases"
+        "actividades.c-frases",
+        "actividades.paso-a-paso"
       ]
     }
   }
