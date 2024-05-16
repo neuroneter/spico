@@ -12,8 +12,6 @@ export interface ActividadesAlarma extends Schema.Component {
     Accion: Attribute.String & Attribute.Required;
     Alarma: Attribute.Time;
     Ciclo_Alarma: Attribute.Boolean & Attribute.DefaultTo<true>;
-    Fecha: Attribute.Date;
-    Ciclo_Fecha: Attribute.Boolean & Attribute.DefaultTo<true>;
     Ciclos: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<5>;
   };
 }
@@ -36,7 +34,7 @@ export interface ActividadesAnimado extends Schema.Component {
 export interface ActividadesCFrases extends Schema.Component {
   collectionName: 'components_actividades_c_frases';
   info: {
-    displayName: 'CFrases';
+    displayName: 'Ciclos';
     icon: 'bulletList';
     description: '';
   };
