@@ -790,12 +790,13 @@ export interface ApiCategoriasFraseCategoriasFrase
     singularName: 'categorias-frase';
     pluralName: 'categorias-frases';
     displayName: 'Categorias Frases';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Nombre: Attribute.String;
+    Nombre: Attribute.Text;
     Descripcion: Attribute.Text;
     frases: Attribute.Relation<
       'api::categorias-frase.categorias-frase',

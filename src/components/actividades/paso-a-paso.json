@@ -9,6 +9,11 @@
   "attributes": {
     "Nombre": {
       "type": "string"
+    },
+    "Lista_de_pasos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "actividades.paso"
     }
   }
 }
