@@ -9,7 +9,7 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {}, 
   "attributes": {
     "Nombre": {
       "type": "string"
