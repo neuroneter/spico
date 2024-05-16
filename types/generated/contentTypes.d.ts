@@ -838,7 +838,8 @@ export interface ApiDimensionDimension extends Schema.CollectionType {
       [
         'actividades.estado-emoji',
         'actividades.animado',
-        'actividades.c-frases'
+        'actividades.c-frases',
+        'actividades.paso-a-paso'
       ]
 =======
     draftAndPublish: false;

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_actividades_paso_a_pasos",
+  "info": {
+    "displayName": "Paso a Paso",
+    "icon": "grid",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Pasos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "actividades.paso"
+    },
+    "Nombre": {
+      "type": "string"
+    }
+  }
+}
