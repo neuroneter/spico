@@ -7,11 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "Pasos": {
-      "type": "component",
-      "repeatable": true,
-      "component": "actividades.paso"
-    },
     "Nombre": {
       "type": "string"
     }
