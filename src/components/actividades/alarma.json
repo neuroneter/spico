@@ -18,14 +18,6 @@
       "type": "boolean",
       "default": true
     },
-    "Fecha": {
-      "type": "date"
-    },
-    "Ciclo_Fecha": {
-      "type": "boolean",
-      "default": true,
-      "required": false
-    },
     "Ciclos": {
       "type": "integer",
       "default": 5,
