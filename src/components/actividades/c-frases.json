@@ -12,10 +12,14 @@
       "repeatable": false,
       "component": "actividades.alarma"
     },
-    "categorias_frase": {
+    "categoria": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::categorias-frase.categorias-frase"
+      "target": "api::categoria.categoria"
+    },
+    "Nombre": {
+      "type": "string",
+      "required": true
     }
   }
 }

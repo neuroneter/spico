@@ -8,7 +8,7 @@
   "options": {},
   "attributes": {
     "Actividad": {
-      "type": "text",
+      "type": "string",
       "required": true
     },
     "Imagen": {

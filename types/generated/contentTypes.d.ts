@@ -783,37 +783,80 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiCategoriasFraseCategoriasFrase
-  extends Schema.CollectionType {
-  collectionName: 'categorias_frases';
+export interface ApiActividadCicloActividadCiclo extends Schema.CollectionType {
+  collectionName: 'actividad_ciclos';
   info: {
-    singularName: 'categorias-frase';
-    pluralName: 'categorias-frases';
-    displayName: 'Categorias Frases';
+    singularName: 'actividad-ciclo';
+    pluralName: 'actividad-ciclos';
+    displayName: 'Actividad Ciclo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Nombre: Attribute.String;
+    Frase_Actividad: Attribute.RichText;
+    Color: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
+    Imagen: Attribute.Media;
+    estado_de_animos: Attribute.Relation<
+      'api::actividad-ciclo.actividad-ciclo',
+      'manyToMany',
+      'api::estado-de-animo.estado-de-animo'
+    >;
+    categorias: Attribute.Relation<
+      'api::actividad-ciclo.actividad-ciclo',
+      'manyToMany',
+      'api::categoria.categoria'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::actividad-ciclo.actividad-ciclo',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::actividad-ciclo.actividad-ciclo',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCategoriaCategoria extends Schema.CollectionType {
+  collectionName: 'categorias';
+  info: {
+    singularName: 'categoria';
+    pluralName: 'categorias';
+    displayName: 'Categoria';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Nombre: Attribute.Text;
-    Descripcion: Attribute.Text;
-    frases: Attribute.Relation<
-      'api::categorias-frase.categorias-frase',
+    Nombre: Attribute.String;
+    Descripcion: Attribute.Blocks;
+    actividad_ciclos: Attribute.Relation<
+      'api::categoria.categoria',
       'manyToMany',
-      'api::frase.frase'
+      'api::actividad-ciclo.actividad-ciclo'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::categorias-frase.categorias-frase',
+      'api::categoria.categoria',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::categorias-frase.categorias-frase',
+      'api::categoria.categoria',
       'oneToOne',
       'admin::user'
     > &
@@ -882,10 +925,10 @@ export interface ApiEstadoDeAnimoEstadoDeAnimo extends Schema.CollectionType {
       'oneToMany',
       'api::paciente.paciente'
     >;
-    frases: Attribute.Relation<
+    actividad_ciclos: Attribute.Relation<
       'api::estado-de-animo.estado-de-animo',
       'manyToMany',
-      'api::frase.frase'
+      'api::actividad-ciclo.actividad-ciclo'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -931,51 +974,6 @@ export interface ApiFormularioFormulario extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::formulario.formulario',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiFraseFrase extends Schema.CollectionType {
-  collectionName: 'frases';
-  info: {
-    singularName: 'frase';
-    pluralName: 'frases';
-    displayName: 'Frases';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Nombre: Attribute.String;
-    Frase: Attribute.RichText;
-    Color: Attribute.String &
-      Attribute.CustomField<'plugin::color-picker.color'>;
-    categorias_frases: Attribute.Relation<
-      'api::frase.frase',
-      'manyToMany',
-      'api::categorias-frase.categorias-frase'
-    >;
-    estado_de_animos: Attribute.Relation<
-      'api::frase.frase',
-      'manyToMany',
-      'api::estado-de-animo.estado-de-animo'
-    >;
-    Imagen: Attribute.Media;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::frase.frase',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::frase.frase',
       'oneToOne',
       'admin::user'
     > &
@@ -1074,11 +1072,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::categorias-frase.categorias-frase': ApiCategoriasFraseCategoriasFrase;
+      'api::actividad-ciclo.actividad-ciclo': ApiActividadCicloActividadCiclo;
+      'api::categoria.categoria': ApiCategoriaCategoria;
       'api::dimension.dimension': ApiDimensionDimension;
       'api::estado-de-animo.estado-de-animo': ApiEstadoDeAnimoEstadoDeAnimo;
       'api::formulario.formulario': ApiFormularioFormulario;
-      'api::frase.frase': ApiFraseFrase;
       'api::paciente.paciente': ApiPacientePaciente;
       'api::tipo-de-respuesta.tipo-de-respuesta': ApiTipoDeRespuestaTipoDeRespuesta;
     }

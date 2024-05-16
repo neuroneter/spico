@@ -8,7 +8,6 @@ export interface ActividadesAlarma extends Schema.Component {
     description: '';
   };
   attributes: {
-    Accion: Attribute.String & Attribute.Required;
     Alarma: Attribute.Time;
     Ciclo_Alarma: Attribute.Boolean & Attribute.DefaultTo<true>;
     Ciclos: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<5>;
@@ -20,6 +19,7 @@ export interface ActividadesAnimado extends Schema.Component {
   info: {
     displayName: 'Animado';
     icon: 'emotionHappy';
+    description: '';
   };
   attributes: {
     Accion: Attribute.Text;
@@ -27,6 +27,7 @@ export interface ActividadesAnimado extends Schema.Component {
     Color: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
     Ciclo: Attribute.Component<'actividades.alarma'>;
+    Nombre: Attribute.String & Attribute.Required;
   };
 }
 
@@ -39,11 +40,12 @@ export interface ActividadesCFrases extends Schema.Component {
   };
   attributes: {
     Ciclo: Attribute.Component<'actividades.alarma'>;
-    categorias_frase: Attribute.Relation<
+    categoria: Attribute.Relation<
       'actividades.c-frases',
       'oneToOne',
-      'api::categorias-frase.categorias-frase'
+      'api::categoria.categoria'
     >;
+    Nombre: Attribute.String & Attribute.Required;
   };
 }
 
@@ -85,7 +87,7 @@ export interface ActividadesPaso extends Schema.Component {
     description: '';
   };
   attributes: {
-    Actividad: Attribute.Text & Attribute.Required;
+    Actividad: Attribute.String & Attribute.Required;
     Imagen: Attribute.Media;
     Audio: Attribute.Media;
   };

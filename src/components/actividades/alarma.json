@@ -7,10 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "Accion": {
-      "type": "string",
-      "required": true
-    },
     "Alarma": {
       "type": "time"
     },

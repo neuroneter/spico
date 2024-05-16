@@ -34,10 +34,10 @@
       "target": "api::paciente.paciente",
       "mappedBy": "Estado_de_Animo"
     },
-    "frases": {
+    "actividad_ciclos": {
       "type": "relation",
       "relation": "manyToMany",
-      "target": "api::frase.frase",
+      "target": "api::actividad-ciclo.actividad-ciclo",
       "mappedBy": "estado_de_animos"
     }
   }

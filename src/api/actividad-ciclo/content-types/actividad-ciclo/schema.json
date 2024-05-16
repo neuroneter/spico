@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "frases",
+  "collectionName": "actividad_ciclos",
   "info": {
-    "singularName": "frase",
-    "pluralName": "frases",
-    "displayName": "Frases",
-    "description": ""
+    "singularName": "actividad-ciclo",
+    "pluralName": "actividad-ciclos",
+    "displayName": "Actividad Ciclo"
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +14,7 @@
     "Nombre": {
       "type": "string"
     },
-    "Frase": {
+    "Frase_Actividad": {
       "type": "richtext"
     },
     "Color": {
@@ -23,27 +22,24 @@
       "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
       "customField": "plugin::color-picker.color"
     },
-    "categorias_frases": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::categorias-frase.categorias-frase",
-      "inversedBy": "frases"
+    "Imagen": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     },
     "estado_de_animos": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::estado-de-animo.estado-de-animo",
-      "inversedBy": "frases"
+      "inversedBy": "actividad_ciclos"
     },
-    "Imagen": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
+    "categorias": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::categoria.categoria",
+      "mappedBy": "actividad_ciclos"
     }
   }
 }
